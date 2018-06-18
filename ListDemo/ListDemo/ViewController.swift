@@ -12,7 +12,10 @@ import UIKit
 typealias JSONItem = [String: Any]
 
 class ViewController: UIViewController {
-
+    
+    var listItems = [ListItem]()
+    var navTitle: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
