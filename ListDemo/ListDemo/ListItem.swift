@@ -14,7 +14,7 @@ class ListItem {
     let description: String?
     let imageURL: String?
     
-    init?(with dictionaryData: Dictionary<String,Any>) {
+    init?(with dictionaryData: JSONItem) {
         guard let title = dictionaryData["title"] as? String else{
                 return nil
         }
