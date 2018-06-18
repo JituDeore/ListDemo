@@ -8,3 +8,20 @@
 
 import Foundation
 
+class ListItem {
+    
+    let title: String!
+    let description: String?
+    let imageURL: String?
+    
+    init?(with dictionaryData: Dictionary<String,Any>) {
+        guard let title = dictionaryData["title"] as? String else{
+                return nil
+        }
+        self.title = title
+        self.description = dictionaryData["description"] as? String ?? ""
+        self.imageURL = dictionaryData["imageHref"] as? String ?? ""
+    }
+}
+
+
