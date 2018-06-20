@@ -15,11 +15,9 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    /// Method to display data in the cell
+    ///
+    /// - Parameter listItem: ListItem object.
     func displayData(with listItem: ListItem) {
         self.titleLabel.text = listItem.title
         self.descriptionLabel.text = listItem.description

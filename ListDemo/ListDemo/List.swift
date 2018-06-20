@@ -9,6 +9,7 @@
 import Foundation
 
 
+///List:- Model for list API response
 class List {
     let title: String
     var listItems: [ListItem] = []

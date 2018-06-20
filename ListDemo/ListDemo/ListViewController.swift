@@ -6,11 +6,15 @@
 //  Copyright © 2018 Jitendra Deore. All rights reserved.
 //
 
+
+
+
 import UIKit
 
 // This is for storing the json array ..
 typealias JSONItem = [String: Any]
 
+/// ViewController to display the list of items.
 class ListViewController: UIViewController {
     
     weak var progressView: UIActivityIndicatorView?
@@ -21,6 +25,7 @@ class ListViewController: UIViewController {
     var navTitle: String!
     
     
+    /// Lazy instantiation of refersh control
     private lazy var refreshControl: UIRefreshControl = { [unowned self] in
         let _refreshControl = UIRefreshControl()
         _refreshControl.addTarget(self, action: #selector(startRefreshing), for: .valueChanged)
@@ -30,9 +35,6 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.refreshControl = refreshControl
-
-    
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,9 +42,8 @@ class ListViewController: UIViewController {
         fetchListData()
     }
     
+    /// Method to fetch list data
     func fetchListData() {
-        
-        
         showProgress()
         APIService.fetchData(apiURL: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") {  [weak self] (result) in
             guard let strongSelf = self else {
@@ -71,6 +72,7 @@ class ListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /// Method to fetch list data on pull to refresh.
     @objc func startRefreshing() {
         refreshControl.beginRefreshing()
        fetchListData()
