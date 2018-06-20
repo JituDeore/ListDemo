@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// Generic enum for result
+///
+/// - success: will return an instance of type T
+/// - failure: will return the failure with appropriate error
 enum Result<T>{
     case success(T)
     case failure(Error?)
