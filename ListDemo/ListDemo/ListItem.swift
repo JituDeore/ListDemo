@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// ListItem:- Model object.
 class ListItem {
     
     let title: String!
