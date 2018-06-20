@@ -19,6 +19,11 @@ enum Result<T>{
 
 class APIService {
     
+    /// Method to fetch api data
+    ///
+    /// - Parameters:
+    ///   - apiURL: request URL
+    ///   - onCompletion: completion handler that returns result.
     class func fetchData(apiURL: String,onCompletion:@escaping (Result<List>)-> Void) {
         
         // Create the URLSession on the default configuration
