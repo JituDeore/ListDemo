@@ -22,7 +22,7 @@ class ListTableViewCell: UITableViewCell {
         self.titleLabel.text = listItem.title
         self.descriptionLabel.text = listItem.description
         if let imageURL = listItem.imageURL{
-            thumbnailImageView?.sd_setImage(with: URL(string: imageURL), placeholderImage: #imageLiteral(resourceName: "placeHolderImage"))
+            thumbnailImageView?.sd_setImage(with: URL(string: imageURL), placeholderImage: #imageLiteral(resourceName: "placeholderImageForList"))
         }
     }
 }
