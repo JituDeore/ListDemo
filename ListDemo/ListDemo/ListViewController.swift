@@ -17,12 +17,14 @@ typealias JSONItem = [String: Any]
 /// ViewController to display the list of items.
 class ListViewController: UIViewController {
     
+    var errView: ErrorView?
     weak var progressView: UIActivityIndicatorView?
     
     @IBOutlet weak var tableView: UITableView!
     
     var listItems = [ListItem]()
     var navTitle: String!
+
     
     
     /// Lazy instantiation of refersh control
@@ -34,7 +36,11 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.refreshControl = refreshControl
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +60,7 @@ class ListViewController: UIViewController {
             strongSelf.refreshControl.endRefreshing()
             switch result{
             case .success(let response):
+                strongSelf.removeErrorView()
                 strongSelf.listItems = response.listItems
                 strongSelf.navTitle = response.title
                 self?.title = response.title
@@ -61,7 +68,7 @@ class ListViewController: UIViewController {
                 
                 break
             case .failure(let error):
-                print(error)
+                self?.handlePageError(error)
                 break
             }
         }

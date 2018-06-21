@@ -38,7 +38,38 @@ extension ListViewController{
         progressView?.stopAnimating()
         _ = progressView?.hidesWhenStopped
     }
-    
-    
 }
+
+extension ListViewController : ErrorPresentableViewController{
+    
+    var errorView: ErrorView {
+        let adapter = ErrorView.inflateView()
+        adapter.delegate = self
+        self.errView = adapter
+        return adapter
+    }
+    
+    var canFullScreenErrorBePresented: Bool {
+        return true
+    }
+    func showErrorScreen(error: NSError){
+        handlePageError(error)
+    }
+
+}
+
+
+extension ListViewController: ErrorViewDelegate{
+    func errorViewDidTapOnButton(_ errorView: ErrorView, and errorWithContent: ErrorContentType) {
+        self.fetchListData()
+    }
+    
+    func removeErrorView() {
+        if let errView1 = errView{
+            errView1.removeErrorView()
+        }
+    }
+}
+
+
 
