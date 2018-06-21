@@ -28,13 +28,13 @@ struct ErrorViewContent {
     func errorCotent() -> ErrorViewContent {
         switch self {
         case .noNetwork:
-            return ErrorViewContent(title:"Please check your connection", subTitle: "", actionTitle: "Refresh", image: nil)
+            return ErrorViewContent(title:"Please check your connection", subTitle: "", actionTitle: "Refresh", image: UIImage(named: "errorIcon"))
         case .noContent:
-            return ErrorViewContent(title: "No content found", subTitle: "We dont have content at this movement", actionTitle:"Refresh", image: nil)
+            return ErrorViewContent(title: "No content found", subTitle: "We dont have content at this movement", actionTitle:"Refresh", image: UIImage(named: "errorIcon"))
         case .serverTimeout:
-            return ErrorViewContent(title: "Time out error", subTitle: "Please check your connection", actionTitle:"Refresh", image: nil)
+            return ErrorViewContent(title: "Time out error", subTitle: "Please check your connection", actionTitle:"Refresh", image: UIImage(named: "errorIcon"))
         case .defaultError:
-            return ErrorViewContent(title: "API Failure", subTitle: "Please check your error", actionTitle:"Refresh", image: nil)
+            return ErrorViewContent(title: "API Failure", subTitle: "Please check your error", actionTitle:"Refresh", image: UIImage(named: "errorIcon"))
             
         }
     }

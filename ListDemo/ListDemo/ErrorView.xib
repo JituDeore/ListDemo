@@ -28,19 +28,19 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7uo-EW-OK2">
                     <rect key="frame" x="132" y="60" width="111" height="111"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry no location found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-WX-bn8">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-WX-bn8">
                     <rect key="frame" x="47.5" y="188" width="281" height="17.5"/>
                     <fontDescription key="fontDescription" name="Newshunt-Bold" family="Newshunt" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPx-rF-hwN">
-                    <rect key="frame" x="152" y="241.5" width="71" height="30"/>
+                    <rect key="frame" x="151.5" y="241.5" width="72" height="30"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="yQb-mb-g1L"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Newshunt-Regular" family="Newshunt" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="contentEdgeInsets" minX="19" minY="0.0" maxX="19" maxY="0.0"/>
                     <state key="normal" title="Home">
                         <color key="titleColor" red="0.46274509800000002" green="0.74901960779999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>

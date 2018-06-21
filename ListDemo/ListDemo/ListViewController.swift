@@ -36,6 +36,8 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.edgesForExtendedLayout = []
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -58,14 +60,13 @@ class ListViewController: UIViewController {
             
             strongSelf.hideProgress()
             strongSelf.refreshControl.endRefreshing()
+            strongSelf.removeErrorView()
             switch result{
             case .success(let response):
-                strongSelf.removeErrorView()
                 strongSelf.listItems = response.listItems
                 strongSelf.navTitle = response.title
-                self?.title = response.title
-                self?.tableView.reloadData()
-                
+                strongSelf.title = response.title
+                strongSelf.tableView.reloadData()
                 break
             case .failure(let error):
                 self?.handlePageError(error)

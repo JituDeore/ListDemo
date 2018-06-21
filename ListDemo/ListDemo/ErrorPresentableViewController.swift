@@ -16,11 +16,8 @@ import UIKit
 protocol ErrorPresentableViewController {
     /// ErrorView which will be used to render error.
     var errorView: ErrorView    { get }
-    
+
     var errorContainer: UIView { get }
-    
-    /// Asks the view controller whether fullscreen error can be presented
-    var canFullScreenErrorBePresented: Bool      { get }
 }
 
 extension ErrorPresentableViewController where Self: UIViewController {
@@ -39,18 +36,20 @@ extension ErrorPresentableViewController where Self: UIViewController {
             showErrorScreenIfRequired(errorContentType: .serverTimeout)
         default:
             showErrorScreenIfRequired(errorContentType: .defaultError)
-            //contentListViewController.showInfoMessage(message: "Something Went Wrong", withLoder: false)
             break
         }
     }
+    
+    /// Removes error from view controller.
     func removeErrorScreen() {
         self.errorView.removeErrorView()
     }
     
+    /// Handling of refres logic
+    ///
+    /// - Parameter errorContentType: returns type of error
     private func showErrorScreenIfRequired(errorContentType: ErrorContentType) {
-        if  canFullScreenErrorBePresented  {
             errorView.presentInView(parentView: errorContainer, errorContent: errorContentType)
-        }
     }
     
     var errorContainer: UIView { return view }
