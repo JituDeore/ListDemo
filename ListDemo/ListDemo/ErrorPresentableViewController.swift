@@ -23,7 +23,7 @@ protocol ErrorPresentableViewController {
 extension ErrorPresentableViewController where Self: UIViewController {
     
     /// Adds a full page error to the caller view
-    func handlePageError(_ _error: Error?, isHeadline: Bool = false) {
+    func handlePageError(_ _error: Error?) {
         guard let error = _error as NSError? else {
             return
         }
